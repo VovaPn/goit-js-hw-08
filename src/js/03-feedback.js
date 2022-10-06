@@ -23,20 +23,15 @@ form.addEventListener(
 
 const load = key => {
     try {
-        const serState = localStorage.getItem(key);
-        return serState === null ? undefined : JSON.parse(serState);
+        const data = localStorage.getItem(key);
+        return data === null ? undefined : JSON.parse(data);
     } catch (error) {
-        console.error('Get state error: ', error.message)
+        console.log(error.message)
     }
 };
-
 
 const savedDate = load(LOCALSTORAGE_KEY);
 if (savedDate) {
     email.value = savedDate.email;
     message.value = savedDate.message;
 }
-
-
-
-

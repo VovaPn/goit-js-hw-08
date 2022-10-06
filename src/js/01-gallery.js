@@ -14,7 +14,7 @@ const galleryImages = galleryItems
   data-source="${item.original}" alt="${item.description}"></a></div>`)
 	.join("");
   
-	gallery.insertAdjacentHTML('afterbegin',galleryImages)
+	gallery.insertAdjacentHTML('afterbegin',galleryImages);
 // const items = [];
 // galleryItems.forEach(element => {
 // 	const galleryItem = document.createElement('div')
@@ -36,21 +36,21 @@ const galleryImages = galleryItems
 // gallery.append(...items)
 
 gallery.addEventListener('click', e => {
-    e.preventDefault();
-    if (e.target.nodeName !== 'IMG') {
+	e.preventDefault();
+	if (e.target.nodeName !== 'IMG') {
 		return
-	}
+	};
 
 	const selectedImage = e.target.getAttribute('data-source');
 	const instance = basicLightbox.create(`<img src="${selectedImage}" width="800" height="600">`);
-    instance.show()
+	instance.show();
     
-    gallery.addEventListener('keydown', e => {
+	gallery.addEventListener('keydown', e => {
 		if (e.key === 'Escape') {
 			instance.close()
 		}
 	})
-}) 
+});
 
 new SimpleLightbox('.gallery a', {
 });
